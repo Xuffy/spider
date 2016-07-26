@@ -1,0 +1,82 @@
+<sp-header></sp-header>
+
+<sp-upload success="{{uploadSuccess}}"></sp-upload>
+
+<sp-control-bar control="{{control}}" input-model="{{@ keywords}}"></sp-control-bar>
+
+<!--共享资源主体开始-->
+<div class="sp-container">
+
+  <div class="col-sm-6 col-md-4 col-lg-3 item-square"
+       v-repeat="item in resource"
+       track-by="$index"
+       v-transition="opacity">
+    <div class="content" v-random-bg>
+      <div class="text" style="cursor: default">
+        <div>
+          <h2 v-text="item.describe"></h2>
+          <span class="type-tag" v-text="item.type"></span>
+        </div>
+      </div>
+      <div class="user">
+        <table style="width: 100%">
+          <tr>
+            <td class="text-left"><span v-text="item.create_at | format"></span></td>
+            <td class="text-center" style="width: 50%">
+              <img class="img-circle img-thumbnail"
+                   v-attr="src: item.user.head_img.url" />
+            </td>
+            <td class="text-right"><span v-text="item.user.nick_name"></span></td>
+          </tr>
+        </table>
+      </div>
+      <div class="control">
+        <button class="sp-animated"
+                v-style="
+                  width: isEditor(item) ? '33.333%' : '50%'
+                "
+                v-on="click : delete($event, item.id)">删除
+        </button>
+        <button class="sp-animated"
+                style="width: 33.333%"
+                v-show="isEditor(item)"
+                v-on="click : openEditor(item.file)">编辑
+        </button>
+        <button class="sp-animated"
+                v-style="
+                  width: isEditor(item) ? '33.333%' : '50%'
+                "
+                v-on="click : down(item.file)">下载
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <sp-loader></sp-loader>
+</div>
+
+<!--共享资源主体结束-->
+
+<sp-no-data data="{{resource}}"></sp-no-data>
+
+<!-- mock list -->
+<div class="modal fade sp-modal" id="resourceModal" tabindex="-1">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">更新资源</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <textarea class="form-control" rows="15" id="editor" v-model="currentUpdateItem.file"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn sp-animated" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn sp-animated" v-on="click : updateFile">保存</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- mock list 结束 -->

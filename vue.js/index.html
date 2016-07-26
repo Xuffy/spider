@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="renderer" content="webkit">
+  <title>Spider</title>
+
+  <!-- lib css -->
+  <link href="lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+  <link href="lib/layer.m/need/layer.css" rel="stylesheet">
+  <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet">
+  <link href="lib/simplemde/dist/simplemde.min.css" rel="stylesheet">
+  <link href="lib/highlight/styles/atelier-forest.light.css" rel="stylesheet">
+
+  <!-- app css -->
+  <link href="styls/base/base.styl" rel="stylesheet">
+  <link href="styls/base/animate.styl" rel="stylesheet">
+  <link href="styls/base/app.styl" rel="stylesheet">
+  <link href="styls/base/mobile.styl" rel="stylesheet">
+  <link href="styls/biz/editor.styl" rel="stylesheet">
+  <link href="styls/biz/login.styl" rel="stylesheet">
+  <link href="styls/biz/article.styl" rel="stylesheet">
+  <link href="styls/biz/dialog.styl" rel="stylesheet">
+  <link href="styls/biz/cdn.styl" rel="stylesheet">
+  <link href="styls/biz/mock.styl" rel="stylesheet">
+</head>
+<body>
+
+<div id="app">
+  <!-- route outlet -->
+  <router-view></router-view>
+</div>
+
+<!-- lib js -->
+
+<script src="lib/mod/mod.js"></script>
+<script src="lib/jquery/dist/jquery.min.js"></script><!--ignore-->
+<script src="lib/vue/dist/vue.min.js"></script><!--ignore-->
+<script src="lib/randomcolor/randomColor.js"></script><!--ignore-->
+<script src="lib/vue-router/dist/vue-router.min.js"></script><!--ignore-->
+<script src="lib/vue-resource/dist/vue-resource.min.js"></script><!--ignore-->
+<script src="lib/bootstrap/js/bootstrap.min.js"></script><!--ignore-->
+<script src="lib/form/jquery.form.js"></script><!--ignore-->
+<script src="lib/fastclick/lib/fastclick.js"></script><!--ignore-->
+<script src="lib/layer.m/layer.m.js"></script><!--ignore-->
+<script src="lib/zeroclipboard/dist/ZeroClipboard.min.js"></script><!--ignore-->
+<script src="lib/highlight/highlight.pack.js"></script><!--ignore-->
+<script src="lib/simplemde/dist/simplemde.min.js"></script><!--ignore-->
+<script src="lib/underscore/underscore-min.js"></script><!--ignore-->
+
+<script>
+  require('components/app');
+</script>
+</body>
+</html>

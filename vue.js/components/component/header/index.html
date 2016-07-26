@@ -1,0 +1,40 @@
+<!-- header 开始-->
+<header id="sp-header">
+  <div class="masthead">
+    <div class="overlay"></div>
+    <div class="text_wrap">
+      <img src="imgs/spider.png" class="center-block">
+      <a class="btn btn-share btn-default sp-animated" v-link="/share">分享</a>
+    </div>
+    <ul class="nav hidden-xs">
+      <li class="active"><a class="sp-animated" v-link="/article">文章</a></li>
+      <li><a class="sp-animated" v-link="/resource">共享资源</a></li>
+      <li><a class="sp-animated" v-link="/cdn">CDN</a></li>
+      <li><a class="sp-animated" v-link="/mock">Mock平台</a></li>
+      <li><a class="sp-animated" href="http://172.16.0.201:1337" target="_blank">调试平台</a></li>
+      <li><a class="sp-animated" href="http://gitlab.it.inkey.com" target="_blank">GitLab</a></li>
+      <li><a class="sp-animated" href="http://172.16.0.202:7002" target="_blank">CNPM</a></li>
+    </ul>
+  </div>
+  <nav class="navbar navbar-default visible-xs m-navbar">
+    <div class="container-fluid">
+      <div class="navbar-header text-center">
+        <a class="collapsed glyphicon glyphicon-menu-hamburger btn-lg"
+           data-toggle="collapse" data-target="#navbar-menu"
+           href="javascript:void(0);"></a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar-menu">
+        <ul class="nav navbar-nav">
+          <li><a v-link="/article">文章</a></li>
+          <li><a v-link="/resource">共享资源</a></li>
+          <li><a v-link="/cdn">CDN</a></li>
+          <li><a v-link="/mock">Mock平台</a></li>
+          <li><a href="http://172.16.0.201:1337" target="_blank">调试平台</a></li>
+          <li><a href="http://gitlab.it.inkey.com" target="_blank">GitLab</a></li>
+          <li><a href="http://172.16.0.202:7002" target="_blank">CNPM</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+<!-- header 结束-->

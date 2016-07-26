@@ -1,0 +1,92 @@
+<sp-header></sp-header>
+
+<sp-control-bar control="{{control}}" placeholder="请输入API名称/地址" input-model="{{@ keywords}}"></sp-control-bar>
+
+<!--接口list-->
+
+<div class="sp-container">
+  <div class="table-responsive">
+    <table class="table mock-detail">
+      <thead>
+      <tr>
+        <th>方式</th>
+        <th>地址</th>
+        <th>描述</th>
+        <th>操作</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr v-repeat="item in mock | search keywords"
+          track-by="$index"
+          v-transition="opacity">
+        <th v-text="item.method"></th>
+        <th v-text="'/m' + item.mock.url + item.url"></th>
+        <th v-text="item.describe"></th>
+        <th>
+          <button type="button"
+                  class="btn btn-primary sp-animated"
+                  v-on="click : view(item)">预览
+          </button>
+          <button type="button"
+                  class="btn btn-primary sp-animated"
+                  v-on="click : update(item)">编辑
+          </button>
+          <button type="button"
+                  class="btn btn-primary sp-animated"
+                  v-on="click : delete($event, item.id)">删除
+          </button>
+        </th>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<!-- mock list -->
+<div class="modal fade sp-modal" id="mockListModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">添加MockList</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-addon">方式</div>
+            <select class="form-control" v-model="mockListMethod">
+              <option value="GET" selected>GET</option>
+              <option value="POST">POST</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-addon">URL</div>
+            <input type="text" class="form-control" v-model="mockListUrl">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-addon">描述</div>
+            <input type="text" class="form-control" v-model="mockListDesc">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label">数据模型</label>
+          <textarea class="form-control" rows="15" v-model="mockListMode"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn sp-animated pull-left" v-on="click : help">模型规则</button>
+        <button type="button" class="btn sp-animated" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn sp-animated" v-on="click : save">添加</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- mock list 结束 -->
+
+
+<sp-no-data data="{{mock}}"></sp-no-data>

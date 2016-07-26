@@ -1,0 +1,99 @@
+@require 'styls/base/vars.styl'
+
+$mockDetailBg = #7580c6
+
+.table-responsive
+  border: none!important
+.mock-detail
+  color: $mockDetailBg
+  *
+    text-align: center
+    border: none!important
+  thead
+    color: #fff
+    background: $mockDetailBg
+  tbody
+    background: #fff!important
+    tr th
+      line-height: 35px
+  tr:nth-child(even)
+    background: lighten($mockDetailBg, 30)!important
+  button:hover
+    border: none!important
+
+$squareBg = #a47dcd
+
+.item-square
+  margin-bottom: 30px
+  color: #fff
+  .text
+    text-align: center
+    height: 220px
+    display: table
+    width: 100%
+    cursor: pointer
+    position: relative
+    .type-tag
+      position: absolute
+      top: 0
+      right: 0
+      padding: 10px 20px
+      background: rgba(0, 0, 0, .2)
+  .text > div
+    display: table-cell
+    vertical-align: middle
+  .user
+    background: #fff
+    height: 60px
+    line-height @height - 4px
+    color: #ddd
+    font-size: 16px
+    img
+      width: 45px
+      height: @width
+      border: none
+  td
+    width: 33.333%!important
+    span
+      margin: 0 10px
+  .control
+    height: 50px
+  button
+    height: 100%
+    width: 100%
+    border-radius: 0
+    background: transparent
+    float: left
+  button:hover
+    background: darken($squareBg, 20%)
+  .half
+    width: 50%!important
+
+
+// 将每行的左右元素内边距设为0
+
+@media (max-width: 767px)
+  .item-square
+    padding-left: 0 !important
+    padding-right: 0 !important
+
+@media (min-width: 768px) and (max-width: 991px)
+  .item-square:nth-child(2n+1)
+    padding-left: 0 !important
+
+  .item-square:nth-child(2n+2)
+    padding-right: 0 !important
+
+@media (min-width: 992px) and (max-width: 1199px)
+  .item-square:nth-child(3n+1)
+    padding-left: 0 !important
+
+  .item-square:nth-child(3n+3)
+    padding-right: 0 !important
+
+@media (min-width: 1200px)
+  .item-square:nth-child(4n+1)
+    padding-left: 0 !important
+
+  .item-square:nth-child(4n+4)
+    padding-right: 0 !important

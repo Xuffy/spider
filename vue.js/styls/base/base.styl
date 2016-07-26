@@ -1,0 +1,63 @@
+body
+  background: #f9f9f9
+  padding-bottom: 600px
+
+a
+  text-decoration: none !important
+  color: inherit
+
+a:hover
+  color: inherit
+
+a:focus
+  background: none!important
+  color: inherit!important
+
+pre
+  margin: 0
+  border: 0
+  width: 100%
+  background: #fff
+  border-radius: 0
+  padding: 20px 20px
+
+button
+  color: #fff
+  &:hover
+  &:active
+    color: #fff!important
+
+// 重置表单样式
+input
+button
+textarea
+select
+  resize: none
+  border: 0 !important
+  outline: none !important
+  -webkit-box-shadow: none !important
+  box-shadow: none !important
+
+// 将 input textarea placeholder颜色设置为白色
+input::-webkit-input-placeholder
+textarea::-webkit-input-placeholder
+  color: #fff !important
+
+input:-moz-placeholder
+textarea:-moz-placeholder
+  color: #fff !important
+
+// 动画过渡
+.sp-animated
+  -webkit-transition: all .5s
+  -moz-transition: all .5s
+  transition: all .5s
+
+// 自定义包装层
+.sp-container
+  width: 94%
+  margin-left: 3%
+
+.not-data
+  position: relative
+  top: 300px

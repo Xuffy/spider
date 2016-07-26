@@ -1,0 +1,82 @@
+<sp-header></sp-header>
+
+<!--文章详情主体-->
+<section>
+  <div class="sp-container">
+    <div class="detail-box">
+      <div class="text-center title-box text-center" v-text="article.title"></div>
+      <div class="ico-box hidden-xs">
+        <button class="sp-animated"
+                v-if="article.file_resource.file"
+                v-on="click : down(article.file_resource.file)">
+          <span class="glyphicon glyphicon-download-alt"></span>
+        </button>
+        <button class="sp-animated"
+                v-if="article"
+                data-toggle="modal" data-target="#editorModal">
+          <span class="glyphicon glyphicon-edit"></span>
+        </button>
+        <button class="sp-animated"
+                v-on="click: delete">
+          <span class="glyphicon glyphicon-trash"></span>
+        </button>
+      </div>
+    </div>
+    <div style="background-color: #fff">
+      <div class="embed-responsive embed-responsive-16by9" v-if="isDoc">
+        <iframe v-attr="src: host + '/viewerpdf/#' + host + '/' + article.file_resource.file.split('.')[0] + '.pdf'"
+                class="embed-responsive-item"
+                style="padding:20px 20px 0"></iframe>
+      </div>
+
+      <div class="pre" v-html="article.content | markedown"></div>
+    </div>
+    <div class="box-4">
+      <p class="pull-left" v-text="article.create_at | format"></p>
+      <img v-attr="src: article.user.head_img.url" class="img-circle">
+
+      <p class="p-align pull-right" v-text="article.user.nick_name"></p>
+    </div>
+
+  </div>
+
+</section>
+<!--文章详情主体-->
+
+
+<!-- mock list -->
+<div class="modal fade sp-modal" id="editorModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">添加MockList</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-addon">分类</div>
+            <select class="form-control"
+                    v-model="categoryId"
+                    options="category | cate">
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-addon">标题</div>
+            <input type="text" class="form-control" v-model="article.title">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <textarea class="form-control" rows="15" id="editor"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn sp-animated" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn sp-animated" v-on="click : update">保存</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- mock list 结束 -->

@@ -1,0 +1,56 @@
+.masthead.login
+  height: 100%
+  position: absolute
+  top:0
+  left:0
+  bottom: 0
+.form-horizontal
+  width: 45%
+  max-width: 400px
+  position: relative
+  top: 100px
+  .form-horizontal
+  .form-group
+    margin-left: 0
+    margin-right: 0
+  input,
+  button
+    margin: 20px 0
+    height: 45px
+    border-radius: 8px
+    color: #80b89e
+  // 默认登录
+  button
+    background: #80b89e
+    color: #fff!important
+    border: none
+  button:hover
+    background: #5a9077!important
+  // 返回登录按钮
+  .btn-return
+    background: #0099e5
+  .btn-return:hover
+    background: #0184c5!important
+  img
+    width: 100px
+    height: 100px
+    margin: 10px 10px
+    border-radius: 100%
+    border: none
+    position: relative
+  img.active
+    background: #80b89e
+  .img-thumbnail
+    cursor: pointer
+  // 重置input placeholder颜色
+  input::-webkit-input-placeholder
+    color: #80b89e !important
+
+  input:-moz-placeholder
+    color: #80b89e !important
+
+@media only screen and (max-width: 767px)
+  .masthead.login
+    .form-horizontal
+      width: 80%
+      top: 70px

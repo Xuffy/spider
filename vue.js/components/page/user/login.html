@@ -1,0 +1,32 @@
+<!-- header 开始-->
+<header>
+  <div class="masthead login">
+    <div class="overlay"></div>
+    <div class="text_wrap">
+      <img src="imgs/spider.png" class="center-block">
+
+      <div class="form-horizontal center-block step-one">
+        <input type="text" class="form-control" placeholder="用户名" v-model="name">
+        <input type="password" class="form-control" placeholder="密码" v-model="pass">
+        <button class="btn btn-default btn-block sp-animated btn-step-one-ok"
+                v-on="click : login">登录·注册</button>
+      </div>
+
+      <div class="form-horizontal center-block hidden step-two" style="opacity: 0">
+        <img class="img-thumbnail"
+             v-repeat="img in headImgs"
+             v-attr="src: img.url"
+             v-on="click : chooseHead(img)"
+             v-class="active : img.id === headImgId"/>
+
+        <input type="text" class="form-control" placeholder="昵称" v-model="nick">
+
+        <button class="btn btn-default btn-block sp-animated btn-step-two-ok"
+                v-on="click : register">完成注册</button>
+
+        <button class="btn btn-default btn-block sp-animated btn-return">返回登录</button>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- header 结束-->

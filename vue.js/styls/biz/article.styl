@@ -1,0 +1,90 @@
+//文章列表
+
+.btn-more
+  background-color: #eee
+  color: #ccc
+  font-size: 16px
+  margin: 100px 0 50px 0
+
+.pre
+  padding: 10px 20px
+  pre
+    padding: 0
+
+//详情页样式
+
+$detailBar = #8ecdb0
+
+.detail-box
+  margin-top: 40px
+  background-color: $detailBar
+  height: 50px
+  position: relative
+  .title-box
+    color: #fff
+    font-size: 22px
+    font-weight: 500
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+    line-height: 50px
+    height: 100%
+  .ico-box
+    position: absolute
+    right: 0
+    top: 0
+    bottom: 0
+    button
+      height: 100%
+      color: #fff
+      width: 50px
+      background: transparent
+      float: left
+    button:hover
+      background: darken($detailBar, 10%)
+
+.box-4
+  background-color: lighten($detailBar, 20)
+  height: 60px
+  line-height: 60px
+  font-size: 14px
+  font-weight: 400
+  color: #888888
+  position: relative
+  margin-bottom: 50px
+  p
+    display: inline-block
+    width: 40%
+    margin: 0
+    padding-left: 15px;
+  .p-align
+    text-align: right
+    padding: 0 15px 0 0;
+  img
+    width: 42px
+    height: 42px
+    border: 2px solid #fff
+    position: absolute
+    left: 50% - 5px
+    margin-top: 10px
+
+.control-bar
+  background: #FFFFFF
+  border-radius: 0
+  border: none
+  .container-fluid
+  .navbar-collapse
+    padding-left:0!important
+    padding-right:0!important
+  .active a
+    background: #8ecdb0!important
+    color:#fff!important
+
+
+@media (max-width: 768px)
+  .control-bar
+    .container-fluid
+    .navbar-collapse
+      padding-left: 15px !important
+      padding-right: 15px !important
+

@@ -1,0 +1,75 @@
+<sp-header></sp-header>
+
+<sp-control-bar control="{{control}}" placeholder="请输入API名称/地址" input-model="{{@ keywords}}"></sp-control-bar>
+
+<!--接口list-->
+
+<div class="sp-container ">
+
+  <div class="col-sm-6 col-md-4 col-lg-3 item-square"
+       v-repeat="item in mock"
+       track-by="$index"
+       v-transition="opacity">
+    <div class="content" v-random-bg>
+      <div class="text" v-link="/mock/{{item.id}}">
+        <div>
+          <h2 v-text="'/m' + item.url"></h2>
+          <h4 style="margin-top:20px" v-text="item.describe"></h4>
+        </div>
+      </div>
+      <div class="user">
+        <table style="width: 100%">
+          <tr>
+            <td class="text-left"><span v-text="item.create_at | format"></span></td>
+            <td class="text-center" style="width: 50%">
+              <img class="img-circle img-thumbnail"
+                   v-attr="src: item.user.head_img.url" />
+            </td>
+            <td class="text-right"><span v-text="item.user.nick_name"></span></td>
+          </tr>
+        </table>
+      </div>
+      <div class="control">
+        <button class="sp-animated"
+                v-on="click: delete($event, item.id)">删除
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <sp-loader></sp-loader>
+</div>
+
+<!-- mock -->
+<div class="modal fade sp-modal" id="mockModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">添加Mock</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-addon">URL</div>
+            <input type="text" class="form-control  text-center" v-model="mockUrl">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-addon">描述</div>
+            <input type="text" class="form-control  text-center" v-model="mockDesc">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn sp-animated" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn sp-animated" v-on="click: save">添加</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- mock 结束 -->
+
+
+<sp-no-data data="{{mock}}"></sp-no-data>

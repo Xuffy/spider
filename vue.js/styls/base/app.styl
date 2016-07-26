@@ -1,0 +1,117 @@
+//====================  header  ====================//
+// -webkit-animation: imageAnimation 26s linear infinite 0s
+@-webkit-keyframes imageAnimation
+  from
+    opacity: .5;
+  50%
+    opacity: 1;
+    -webkit-transform: scale(1.1);
+  to
+    opacity: .5;
+
+.masthead
+  background: url('../../imgs/header.jpg')
+  color: #fff
+  display: table
+  width: 100%
+  position: relative
+  -webkit-background-size: cover
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: center
+  text-align: center
+  min-height: 350px
+  height: 520px
+  height: -webkit-calc(100vh - 149px)
+  height: -moz-calc(100vh - 149px)
+  height: calc(100vh - 149px)
+  // 遮罩层 白色透明
+  .overlay
+    position: absolute
+    left: 0
+    right: 0
+    top: 0
+    bottom: 0
+    background-color: rgba(255, 255, 255, .1)
+    z-index: 3
+  // 文字层
+  .text_wrap
+    display: table-cell
+    vertical-align: top
+    position: relative
+    padding: 25vh 10px
+    z-index: 4
+  // 按钮
+  .btn-share
+    border: 3px solid #fff
+    padding: 10px 130px
+    font-size: 38px
+    position: relative
+    top: 100px
+    color: #fff
+    background-color: transparent
+  .btn:hover
+    background-color: #0099e5
+    border-color: #0099e5
+    color: #fff
+  // 导航
+  .nav
+    position: absolute
+    bottom: 10px
+    left: 20px
+    font-size: 18px
+    z-index: 5
+    li
+      float: left
+      margin: 0 5px
+    a:hover,
+    a.v-link-active
+      background: none
+      color: #8ecdb0
+
+//====================  功能操作区 搜索 添加  ====================//
+
+$actionbaBg = #80b89e
+$actionbaInputBg = darken($actionbaBg, 10%)
+$actionbaBtnBg = darken($actionbaBg, 15%)
+$actionbaBtnHoverBg = darken($actionbaBg, 20%)
+
+#actionbar
+  width: 100%
+  padding: 15px 0
+  color: #fff
+  background: $actionbaBg
+  margin-bottom 30px
+  .form-group:last-child
+    margin-bottom: 0
+  input
+  select
+    background: $actionbaInputBg
+    color: #fff
+    height: 45px
+  select
+    -webkit-appearance: none
+    -moz-appearance: none
+    appearance: none
+  .input-group-addon
+    cursor: pointer
+    color: #fff
+    border: none
+    padding: 0 25px
+    background: $actionbaBtnBg
+    &:hover
+      background: $actionbaBtnHoverBg
+
+//====================  适配小屏  ====================//
+
+@media only screen and (max-width: 767px)
+  .masthead
+    height: -webkit-calc(100vh - 200px)
+    height: -moz-calc(100vh - 200px)
+    height: calc(100vh - 200px)
+    img
+      width: 50%
+    .btn-share
+      font-size: 18px
+      top: 40px
+      padding: 10px 50px

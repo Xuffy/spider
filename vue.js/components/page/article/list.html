@@ -1,0 +1,71 @@
+<sp-header></sp-header>
+
+<sp-control-bar control="{{control}}" input-model="{{@ keywords}}"></sp-control-bar>
+
+<div class="sp-container">
+  <nav class="navbar navbar-default control-bar">
+    <div class="container-fluid">
+      <div class="navbar-header visible-xs">
+        <button type="button"
+                class="navbar-toggle collapsed"
+                data-toggle="collapse"
+                data-target="#controlBar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="javascript:void(0)">分类</a>
+      </div>
+
+      <div class="collapse navbar-collapse"
+           id="controlBar">
+        <ul class="nav navbar-nav">
+          <li v-class="active : cateId === 0"
+              track-by="$index"
+              v-on="click : cateId = 0">
+            <a href="javascript:void(0)">所有</a>
+          </li>
+          <li v-repeat="item in category"
+
+              v-class="active : cateId === item.id"
+              v-on="click : cateId = item.id">
+            <a href="javascript:void(0)" v-text="item.name"></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div class="sp-container">
+
+  <div class="col-sm-6 col-md-4 col-lg-3 item-square"
+       v-repeat="item in article"
+       track-by="$index"
+       v-link="/article/{{item.id}}"
+       v-transition="opacity">
+    <div class="content" v-random-bg>
+      <div class="text">
+        <div>
+          <h2 v-text="item.title"></h2>
+        </div>
+      </div>
+      <div class="user">
+        <table style="width: 100%">
+          <tr>
+            <td class="text-left"><span v-text="item.create_at | format"></span></td>
+            <td class="text-center" style="width: 50%">
+              <img class="img-circle img-thumbnail"
+                   v-attr="src: item.user.head_img.url" />
+            </td>
+            <td class="text-right"><span v-text="item.user.nick_name"></span></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <sp-loader></sp-loader>
+</div>
+
+<sp-no-data data="{{article}}"></sp-no-data>

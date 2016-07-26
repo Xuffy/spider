@@ -1,0 +1,26 @@
+<!-- 功能操作区开始 -->
+<section id="actionbar">
+  <div class="form-group sp-container">
+    <div class="input-group">
+
+      <div class="input-group-addon sp-animated"
+           v-repeat="item in control.left"
+           v-on="click : item.action"
+           v-text="item.title">
+      </div>
+
+      <input type="text"
+             class="form-control input-no-effects text-center"
+             placeholder="{{placeholder || '请输入搜索内容'}}"
+             v-model="inputModel">
+
+      <div class="input-group-addon sp-animated"
+           v-repeat="item in control.right"
+           v-on="click : item.action"
+           v-text="item.title">
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- 功能操作区结束 -->
